@@ -14,13 +14,14 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
+import { after } from 'lodash'
 import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
 //get tests ready by going to URL and accepting the cookie message pop up and logging in
-before(() => {
+beforeEach(() => {
     cy.visit('https://liftshare.com/uk')
     cy.contains('Accept All Cookies').click()
     cy.contains("Login").click()
@@ -34,3 +35,13 @@ before(() => {
     cy.url().should('include', "/account")
       })
 })
+
+//delete journeys
+
+//after(() => {
+  //cy.visit('https://liftshare.com/uk/journeys')
+  //cy.get('#liftshare > div.container.container-height.my-5 > div > main > div > div > div.py-4.px-4.px-md-5.bg-body.bl-3.b-pri > span > a').click()
+  //cy.get('#liftshare > div.container.container-height.my-5 > div > main > div > div > div.py-4.px-4.px-md-5.bg-body.bl-3.b-pri > span > aside > div > button.btn.btn--danger.mr-3.mb-2').click()
+  //cy.get('body > div.v-toaster > span > div').should('be.visible');
+ //   })
+
