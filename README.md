@@ -1,18 +1,42 @@
-## Getting Started
+# Lift Share Cypress (LSCypress)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Description
+
+Project for end to end testing of Liftshare.com/uk using Cypress
+
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Node.js and npm installed
+- A web application to test
+
+## Installation and Running Tests
+
+1. Clone the repository:
+git clone https://github.com/GinaEdk/LSCypress.git
+
+2. Navigate to the project directory:
+cd cypress-project
+
+3. Install dependencies:
+npm install
+
+4. Running Tests
+To run Cypress tests using Cypress Test Runner, use the following command:
+npm test
+To run tests in headless mode (e.g., for CI/CD), use:
+npm run test:headless
+
 
 ## Folder Structure
 
-The workspace contains two folders by default, where:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+cypress/e2e: Stores test files
+cypress/support: Stores custom commands and other support files such as before & after test steps
+cypress/fixtures: Stores test data files
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Tests
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Before each test the script will login, this allows the tests to be focused on the scenario rather than having to repeat login steps in each spec file

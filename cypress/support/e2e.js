@@ -23,12 +23,14 @@ import './commands'
 before(() => {
     cy.visit('https://liftshare.com/uk')
     cy.contains('Accept All Cookies').click()
-   cy.contains("Login").click()
-        cy.get('#email').type('g.edkins93@hotmail.com')
-        cy.get('#ls-login > form > div:nth-child(4) > button').click()
-        cy.get('#password').type('Pa55w0rd')
-        cy.get('#ls-login > form > div:nth-child(5) > button').click()
-        cy.url().should('include', "/account")
+    cy.contains("Login").click()
+    cy.fixture('test-data').then((data) => {
+      const username = data.username;
+      const password = data.password;
+    cy.get('#email').type(username)
+    cy.get('#ls-login > form > div:nth-child(4) > button').click()
+    cy.get('#password').type(password)
+    cy.get('#ls-login > form > div:nth-child(5) > button').click()
+    cy.url().should('include', "/account")
       })
-    
-  
+})
