@@ -1,0 +1,1 @@
+//store page objects for Profile page to use in tests
