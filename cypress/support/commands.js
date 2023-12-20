@@ -27,3 +27,24 @@
 Cypress.Commands.add('selectFromAutocomplete', (selector, value) => {
     cy.get(selector).type(value).type('{enter}');
   });
+
+  Cypress.Commands.add('editReturnTime', () => {
+    cy.get('.journey__footer button.btn--sec span').click();
+  });
+
+  Cypress.Commands.add('editJourney', (editedOrigin) => {
+    cy.visit(`${baseUrl}/journeys`);
+    cy.get('.timeline-dates a.btn--link').click();
+    cy.get('#AutocompleteOrigin').clear().type(editedOrigin);
+    cy.get('.journey__footer button').click();
+    cy.get('#ShareAsPassenger').click();
+    cy.get('.journey__footer button.btn--sec').click();
+    cy.get('.journey__footer button span').click();
+  });
+
+  Cypress.Commands.add('deleteJourney', () => {
+    cy.visit(`${baseUrl}/journeys`);
+    cy.get('.container-height .btn--pri').click();
+    cy.get('.container-height .btn--danger').click();
+    cy.get('.v-toaster').should('be.visible');
+  });
